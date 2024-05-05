@@ -13,9 +13,9 @@ import com.example.ezcalculator.R
 import com.google.android.material.button.MaterialButton
 
 private val normal = listOf(
-    listOf("C", "<-", "%", "÷"),
-    listOf("7", "8", "9", "/"),
-    listOf("4", "5", "6", "*"),
+    listOf("C", "<-", "%", "/"),
+    listOf("7", "8", "9", "*"),
+    listOf("4", "5", "6", "-"),
     listOf("1", "2", "3", "+"),
     listOf("转换", "0", ".", "=")
 )
@@ -23,9 +23,9 @@ private val normal = listOf(
 private val science = listOf(
     listOf("2nd", "deg", "sin", "cos", "tan"),
     listOf("x^y", "lg", "ln", "(", ")"),
-    listOf("√￣", "C", "<-", "%", "÷"),
-    listOf("x!", "7", "8", "9", "/"),
-    listOf("1/x", "4", "5", "6", "*"),
+    listOf("√￣", "C", "<-", "%", "/"),
+    listOf("x!", "7", "8", "9", "*"),
+    listOf("1/x", "4", "5", "6", "-"),
     listOf("π", "1", "2", "3", "+"),
     listOf("转换", "e", "0", ".", "=")
 )
