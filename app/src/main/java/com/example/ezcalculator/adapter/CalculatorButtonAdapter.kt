@@ -82,9 +82,9 @@ class CalculatorButtonAdapter(private var calculateButtonListenerUser: Calculate
         val buttonValue = data[position / data[0].size][position % data[0].size]
         holder.button.text = buttonValue
         holder.button.textSize = if (!flag) {
-            30F
+            27.5F
         } else {
-            20F
+            17.5F
         }
         holder.button.height = view.context.display?.height!! / 2 / data.size
     }

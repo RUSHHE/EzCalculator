@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView.ItemDecoration
 import com.example.ezcalculator.adapter.CalculatorAreaAdapter
 import com.example.ezcalculator.adapter.CalculatorButtonAdapter
 import com.example.ezcalculator.databinding.ActivityMainBinding
@@ -32,5 +33,17 @@ class MainActivity : ComponentActivity() {
         binding.buttonArea.layoutManager = buttonLayoutManager
         val calcButtonAdapter = CalculatorButtonAdapter(calculateButtonListenerUser)
         binding.buttonArea.adapter = calcButtonAdapter
+        binding.buttonArea.addItemDecoration(object : ItemDecoration() {
+            override fun getItemOffsets(
+                outRect: android.graphics.Rect,
+                view: android.view.View,
+                parent: androidx.recyclerview.widget.RecyclerView,
+                state: androidx.recyclerview.widget.RecyclerView.State
+            ) {
+                super.getItemOffsets(outRect, view, parent, state)
+                outRect.left = 10
+                outRect.right = 10
+            }
+        })
     }
 }
