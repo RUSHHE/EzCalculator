@@ -24,7 +24,11 @@ class MainActivity : ComponentActivity() {
         binding.historyArea.adapter = calcAreaAdapter
 
 
-        val buttonLayoutManager = GridLayoutManager(this, 4)
+        val buttonLayoutManager = object : GridLayoutManager(this, 4) {
+            override fun canScrollVertically(): Boolean {
+                return false
+            }
+        }
         binding.buttonArea.layoutManager = buttonLayoutManager
         val calcButtonAdapter = CalculatorButtonAdapter(calculateButtonListenerUser)
         binding.buttonArea.adapter = calcButtonAdapter

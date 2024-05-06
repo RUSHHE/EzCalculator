@@ -51,13 +51,21 @@ class CalculatorButtonAdapter(private var calculateButtonListenerUser: Calculate
                         flag = true
                         data = science
                         (parent as RecyclerView).layoutManager =
-                            GridLayoutManager(parent.context, 5)
+                            object : GridLayoutManager(parent.context, 5) {
+                                override fun canScrollVertically(): Boolean {
+                                    return false
+                                }
+                            }
                         notifyDataSetChanged()
                     } else {
                         flag = false
                         data = normal
                         (parent as RecyclerView).layoutManager =
-                            GridLayoutManager(parent.context, 4)
+                            object : GridLayoutManager(parent.context, 4) {
+                                override fun canScrollVertically(): Boolean {
+                                    return false
+                                }
+                            }
                         notifyDataSetChanged()
                     }
                 }
