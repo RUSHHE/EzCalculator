@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView.ItemDecoration
 import com.example.ezcalculator.adapter.CalculatorAreaAdapter
 import com.example.ezcalculator.adapter.CalculatorButtonAdapter
+import com.example.ezcalculator.adapter.HistoryAdapter
 import com.example.ezcalculator.databinding.ActivityMainBinding
 
 class MainActivity : ComponentActivity() {
@@ -20,9 +21,9 @@ class MainActivity : ComponentActivity() {
         val calculateButtonListenerUser = CalculateButtonListenerUser()
 
         val areaLayoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-        binding.historyArea.layoutManager = areaLayoutManager
+        binding.calculateArea.layoutManager = areaLayoutManager
         val calcAreaAdapter = CalculatorAreaAdapter(calculateButtonListenerUser)
-        binding.historyArea.adapter = calcAreaAdapter
+        binding.calculateArea.adapter = calcAreaAdapter
 
 
         val buttonLayoutManager = object : GridLayoutManager(this, 4) {

@@ -25,7 +25,7 @@ class CalculatorAreaAdapter(private var calculateButtonListenerUser: CalculateBu
     private val deal = Deal()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.calc_area, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.calc_area_item, parent, false)
         val viewHolder = ViewHolder(view)
         viewHolder.textView.setOnClickListener {
             Log.i("CalcArea", viewHolder.textView.toString())

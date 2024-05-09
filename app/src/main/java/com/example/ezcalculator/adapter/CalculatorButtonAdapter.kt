@@ -42,7 +42,7 @@ class CalculatorButtonAdapter(private var calculateButtonListenerUser: Calculate
 
     @SuppressLint("NotifyDataSetChanged")
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        view = LayoutInflater.from(parent.context).inflate(R.layout.digit_button, parent, false)
+        view = LayoutInflater.from(parent.context).inflate(R.layout.calc_button_item, parent, false)
         val viewHolder = ViewHolder(view)
         viewHolder.button.setOnClickListener {
             when (viewHolder.button.text) {
