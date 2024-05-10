@@ -1,5 +1,5 @@
 package com.example.ezcalculator
 
-interface CalculateButtonCallback {
+interface RequestCallback {
     fun request(string: String)
 }

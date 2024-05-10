@@ -18,11 +18,12 @@ class MainActivity : ComponentActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val calculateButtonListenerUser = CalculateButtonListenerUser()
+        val buttonRequestListenerUser = RequestListenerUser()
+        val historyRequestListenerUser = RequestListenerUser()
 
         val areaLayoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         binding.calculateArea.layoutManager = areaLayoutManager
-        val calcAreaAdapter = CalculatorAreaAdapter(calculateButtonListenerUser)
+        val calcAreaAdapter = CalculatorAreaAdapter(buttonRequestListenerUser, historyRequestListenerUser)
         binding.calculateArea.adapter = calcAreaAdapter
 
 
@@ -32,7 +33,7 @@ class MainActivity : ComponentActivity() {
             }
         }
         binding.buttonArea.layoutManager = buttonLayoutManager
-        val calcButtonAdapter = CalculatorButtonAdapter(calculateButtonListenerUser)
+        val calcButtonAdapter = CalculatorButtonAdapter(buttonRequestListenerUser)
         binding.buttonArea.adapter = calcButtonAdapter
         binding.buttonArea.addItemDecoration(object : ItemDecoration() {
             override fun getItemOffsets(
@@ -46,5 +47,8 @@ class MainActivity : ComponentActivity() {
                 outRect.right = 10
             }
         })
+
+        binding.historyArea.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        binding.historyArea.adapter = HistoryAdapter(historyRequestListenerUser)
     }
 }

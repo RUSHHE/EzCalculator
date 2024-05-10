@@ -7,12 +7,12 @@ import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.example.ezcalculator.CalculateButtonCallback
+import com.example.ezcalculator.RequestCallback
 import com.example.ezcalculator.R
-import com.example.ezcalculator.CalculateButtonListenerUser
+import com.example.ezcalculator.RequestListenerUser
 import com.example.ezcalculator.utils.Deal
 
-class CalculatorAreaAdapter(private var calculateButtonListenerUser: CalculateButtonListenerUser) :
+class CalculatorAreaAdapter(private var buttonRequestListenerUser: RequestListenerUser, private var historyRequestListenerUser: RequestListenerUser) :
     RecyclerView.Adapter<CalculatorAreaAdapter.ViewHolder>() {
     private var calculateItem = ArrayList<String>().apply {
         add("0")
@@ -31,7 +31,7 @@ class CalculatorAreaAdapter(private var calculateButtonListenerUser: CalculateBu
             Log.i("CalcArea", viewHolder.textView.toString())
             Log.i("CalcArea", calculateItem.toString())
         }
-        calculateButtonListenerUser.requestListener = object : CalculateButtonCallback {
+        buttonRequestListenerUser.requestListener = object : RequestCallback {
             override fun request(string: String) {
                 when (string) {
                     "C" -> {
@@ -56,6 +56,7 @@ class CalculatorAreaAdapter(private var calculateButtonListenerUser: CalculateBu
                             deal.calculate(calculateItem[calculateItem.size - 1]).toString()
                         )
                         notifyItemInserted(getItemCount() - 1)
+                        historyRequestListenerUser.useRequestListener(calculateItem[calculateItem.size - 2] + "=" + calculateItem[calculateItem.size - 1])
                     }
 
                     "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", ".", "+", "-", "*", "/", "%" -> {

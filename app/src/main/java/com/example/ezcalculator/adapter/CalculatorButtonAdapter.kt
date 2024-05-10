@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.ezcalculator.CalculateButtonListenerUser
+import com.example.ezcalculator.RequestListenerUser
 import com.example.ezcalculator.R
 import com.google.android.material.button.MaterialButton
 
@@ -32,7 +32,7 @@ private val science = listOf(
 private var flag = false
 private var data = normal
 
-class CalculatorButtonAdapter(private var calculateButtonListenerUser: CalculateButtonListenerUser) :
+class CalculatorButtonAdapter(private var requestListenerUser: RequestListenerUser) :
     RecyclerView.Adapter<CalculatorButtonAdapter.ViewHolder>() {
     private lateinit var view: View
 
@@ -70,7 +70,7 @@ class CalculatorButtonAdapter(private var calculateButtonListenerUser: Calculate
                     }
                 }
             }
-            calculateButtonListenerUser.useRequestListener(viewHolder.button.text.toString())
+            requestListenerUser.useRequestListener(viewHolder.button.text.toString())
         }
         return ViewHolder(view)
     }
